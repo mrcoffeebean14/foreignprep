@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { useApp } from "@/components/providers/AppProvider";
 import { BRAND, NAV_LINKS, type NavLink } from "@/data/mockData";
 import { cn } from "@/lib/utils";
@@ -241,6 +242,7 @@ export function Header() {
           </nav>
 
           <div className="hidden items-center gap-2 lg:flex">
+            <ThemeToggle className="mr-1" />
             <Button
               variant="ghost"
               size="sm"
@@ -392,6 +394,10 @@ export function Header() {
                 })}
               </ul>
 
+              <div className="mt-6 flex items-center justify-between rounded-2xl border border-ink-300/20 px-4 py-3">
+                <span className="text-sm font-semibold text-ink">Colour theme</span>
+                <ThemeToggle />
+              </div>
               <div className="mt-6 space-y-3">
                 <Button
                   variant="outline"

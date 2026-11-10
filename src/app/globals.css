@@ -5,6 +5,67 @@
 :root {
   --font-sans: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
   --font-display: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+
+  /* Theme: Crimson (default).
+     Values are space-separated RGB channels so Tailwind's <alpha-value>
+     placeholder can compose them, e.g. bg-brand-600/20. */
+  --c-brand-50: 255 241 243;
+  --c-brand-100: 255 224 229;
+  --c-brand-200: 255 197 206;
+  --c-brand-300: 255 156 172;
+  --c-brand-400: 250 98 128;
+  --c-brand-500: 237 45 82;
+  --c-brand-600: 216 18 57;
+  --c-brand-700: 182 12 46;
+  --c-brand-800: 143 10 36;
+  --c-brand-900: 107 10 29;
+
+  --c-surface-tint: 255 246 247;
+  --c-accent-blue: 46 111 242;
+  --c-accent-sky: 232 240 254;
+  --c-accent-amber: 245 166 35;
+  --c-accent-cream: 255 246 227;
+
+  /* Headline gradient stops */
+  --grad-from: var(--c-brand-500);
+  --grad-via: var(--c-brand-600);
+  --grad-to: var(--c-brand-700);
+
+  /* Ambient radial wash behind the hero / pricing */
+  --c-wash-a: var(--c-brand-500);
+  --c-wash-b: var(--c-accent-blue);
+}
+
+/* Theme: Azure — deep blue primary with a mustard second accent. */
+:root[data-theme="azure"] {
+  --c-brand-50: 239 244 255;
+  --c-brand-100: 219 230 254;
+  --c-brand-200: 191 210 253;
+  --c-brand-300: 147 180 251;
+  --c-brand-400: 94 141 247;
+  --c-brand-500: 46 107 238;
+  --c-brand-600: 26 79 214;
+  --c-brand-700: 21 64 174;
+  --c-brand-800: 20 54 136;
+  --c-brand-900: 20 46 107;
+
+  --c-surface-tint: 241 245 255;
+  /* Blue is the primary here, so the categorical "blue" accent shifts to
+     mustard to stay distinguishable from brand. */
+  --c-accent-blue: 181 130 9;
+  --c-accent-sky: 253 245 224;
+  --c-accent-amber: 224 164 18;
+  --c-accent-cream: 251 241 216;
+
+  /* Blue and mustard sit on opposite sides of the colour wheel, so a direct
+     gradient between them passes through grey. The headline stays inside the
+     blue ramp; mustard carries as the accent (ratings, chips, washes). */
+  --grad-from: var(--c-brand-700);
+  --grad-via: var(--c-brand-600);
+  --grad-to: var(--c-brand-400);
+
+  --c-wash-a: var(--c-brand-500);
+  --c-wash-b: var(--c-accent-amber);
 }
 
 @layer base {
@@ -44,18 +105,24 @@
   }
 
   .text-gradient-brand {
-    @apply bg-gradient-to-r from-brand-500 via-brand-600 to-brand-700 bg-clip-text text-transparent;
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      to right,
+      rgb(var(--grad-from)),
+      rgb(var(--grad-via)),
+      rgb(var(--grad-to))
+    );
   }
 
   .radial-tint {
     background-image: radial-gradient(
         60rem 32rem at 12% -10%,
-        rgba(237, 45, 82, 0.1),
+        rgb(var(--c-wash-a) / 0.1),
         transparent 60%
       ),
       radial-gradient(
         48rem 28rem at 88% 4%,
-        rgba(46, 111, 242, 0.08),
+        rgb(var(--c-wash-b) / 0.08),
         transparent 62%
       );
   }

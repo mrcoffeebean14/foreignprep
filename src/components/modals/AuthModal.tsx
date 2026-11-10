@@ -38,7 +38,7 @@ function GoogleGlyph() {
   return (
     <svg viewBox="0 0 20 20" className="h-4 w-4" aria-hidden="true">
       <circle cx="10" cy="10" r="9" fill="#E8EAF2" />
-      <path d="M10 5.5A4.5 4.5 0 1 0 14.5 10H10" fill="none" stroke="#D81239" strokeWidth="2.4" />
+      <path d="M10 5.5A4.5 4.5 0 1 0 14.5 10H10" fill="none" stroke="rgb(var(--c-brand-600))" strokeWidth="2.4" />
     </svg>
   );
 }

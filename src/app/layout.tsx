@@ -28,6 +28,14 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${jakarta.variable}`}>
+      <head>
+        {/* Applies the saved theme before first paint to avoid a colour flash. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem("fp-theme");if(t==="azure"){document.documentElement.setAttribute("data-theme","azure")}}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body className="bg-surface font-sans text-ink">
         <AppProvider>{children}</AppProvider>
       </body>

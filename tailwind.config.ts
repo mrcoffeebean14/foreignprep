@@ -5,17 +5,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Themed via CSS variables (see globals.css). The <alpha-value>
+        // placeholder keeps opacity modifiers like `bg-brand-600/20` working.
         brand: {
-          50: "#FFF1F3",
-          100: "#FFE0E5",
-          200: "#FFC5CE",
-          300: "#FF9CAC",
-          400: "#FA6280",
-          500: "#ED2D52",
-          600: "#D81239",
-          700: "#B60C2E",
-          800: "#8F0A24",
-          900: "#6B0A1D",
+          50: "rgb(var(--c-brand-50) / <alpha-value>)",
+          100: "rgb(var(--c-brand-100) / <alpha-value>)",
+          200: "rgb(var(--c-brand-200) / <alpha-value>)",
+          300: "rgb(var(--c-brand-300) / <alpha-value>)",
+          400: "rgb(var(--c-brand-400) / <alpha-value>)",
+          500: "rgb(var(--c-brand-500) / <alpha-value>)",
+          600: "rgb(var(--c-brand-600) / <alpha-value>)",
+          700: "rgb(var(--c-brand-700) / <alpha-value>)",
+          800: "rgb(var(--c-brand-800) / <alpha-value>)",
+          900: "rgb(var(--c-brand-900) / <alpha-value>)",
         },
         ink: {
           DEFAULT: "#14141F",
@@ -28,13 +30,13 @@ const config: Config = {
           DEFAULT: "#FFFFFF",
           muted: "#FAFAFC",
           sunken: "#F4F4F8",
-          tint: "#FFF6F7",
+          tint: "rgb(var(--c-surface-tint) / <alpha-value>)",
         },
         accent: {
-          blue: "#2E6FF2",
-          sky: "#E8F0FE",
-          amber: "#F5A623",
-          cream: "#FFF6E3",
+          blue: "rgb(var(--c-accent-blue) / <alpha-value>)",
+          sky: "rgb(var(--c-accent-sky) / <alpha-value>)",
+          amber: "rgb(var(--c-accent-amber) / <alpha-value>)",
+          cream: "rgb(var(--c-accent-cream) / <alpha-value>)",
           green: "#15A66B",
           mint: "#E6F7EF",
           violet: "#7C5CF0",
@@ -54,8 +56,8 @@ const config: Config = {
       boxShadow: {
         soft: "0 1px 2px rgba(20,20,31,0.04), 0 8px 24px -12px rgba(20,20,31,0.12)",
         card: "0 2px 4px rgba(20,20,31,0.03), 0 18px 40px -20px rgba(20,20,31,0.18)",
-        lift: "0 10px 20px -8px rgba(20,20,31,0.12), 0 30px 60px -28px rgba(216,18,57,0.28)",
-        glow: "0 0 0 1px rgba(237,45,82,0.16), 0 20px 50px -24px rgba(237,45,82,0.45)",
+        lift: "0 10px 20px -8px rgba(20,20,31,0.12), 0 30px 60px -28px rgb(var(--c-brand-600) / 0.28)",
+        glow: "0 0 0 1px rgb(var(--c-brand-500) / 0.16), 0 20px 50px -24px rgb(var(--c-brand-500) / 0.45)",
       },
       maxWidth: {
         container: "80rem",
